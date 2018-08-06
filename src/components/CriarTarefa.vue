@@ -1,22 +1,24 @@
 <template>
-  <div>
-    <button @click="hidepanel=!hidepanel">Criar tarefa</button>
+  <div id="criar-tafera-container">
+    <button @click="hidepanel=!hidepanel" id="criar-tarafa-btn">Criar tarefa</button>
     <div id="cadastro-tarefa-container" :class="{ hide : hidepanel }">
       <input type="text" v-model="item" placeholder="Name">
       <textarea rows="8" cols="80" v-model="itemDescription" placeholder="Description"></textarea>
-      <div>
+      <div class="range-container">
         <label>Impact <span>{{impactRange}}</span></label>
         <input type="range" min="0" max="10" v-model="impactRange" id="inputImpact">
       </div>
-      <div>
+      <div class="range-container">
         <label>Confidence <span>{{confidenceRange}}</span></label>
         <input type="range" min="0" max="10" v-model="confidenceRange" id="inputConfidence">
       </div>
-      <div>
+      <div class="range-container">
         <label>Ease <span>{{easeRange}}</span></label>
         <input type="range" min="0" max="10" v-model="easeRange" id="inputEase">
       </div>
-      <button @click="addItem">Salvar</button>
+      <div id="salvar-tarefa-btn-container">
+        <button @click="addItem" id="salvar-tarefa-btn">Salvar</button>
+      </div>
     </div>
   </div>
 </template>
@@ -70,15 +72,65 @@ export default {
 </script>
 
 <style scoped>
+  #criar-tafera-container {
+    padding: 20px;
+  }
   #cadastro-tarefa-container {
     max-height: 500px;
     overflow: hidden;
     transition: 1s ease-in all;
+    display: flex;
+    flex-wrap: wrap;
   }
   #cadastro-tarefa-container.hide {
     max-height: 1px;
   }
   input, textarea {
     width: 100%;
+  }
+  button {
+    color: #ffffff;
+    background: #0b6ebd;
+    height: 40px;
+    border-radius: 5px;
+    border: 1px solid #0b6ebd;
+    padding: 0 20px;
+    font-weight: bold;
+  }
+  #criar-tarafa-btn {
+    display: block;
+  }
+  #salvar-tarefa-btn {
+    background: green;
+    border: 1px solid green;
+    margin-top: 10px;
+  }
+  input[type="text"] {
+    height: 40px;
+    margin: 20px 0;
+    border: 1px solid #0b6ebd;
+    text-indent: 20px;
+  }
+  textarea {
+    border: 1px solid #0b6ebd;
+    resize: none;
+    padding: 15px 5px 0 20px;
+    height: 65px;
+    margin-bottom: 20px;
+  }
+  .range-container {
+    width: 33.3%;
+    padding: 0 10px;
+    box-sizing: border-box;
+  }
+  .range-container:first-of-type {
+    padding-left: 0;
+  }
+  .range-container:last-of-type {
+    padding-right: 0;
+  }
+  #salvar-tarefa-btn-container {
+    width: 100%;
+    text-align: right;
   }
 </style>

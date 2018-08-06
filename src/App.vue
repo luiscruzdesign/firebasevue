@@ -2,18 +2,18 @@
   <div id="app">
     <h1>ICE Score</h1>
     <CriarTarefa/>
-    <Cadastro/>
+    <Listagem/>
   </div>
 </template>
 
 <script>
 import CriarTarefa from './components/CriarTarefa'
-import Cadastro from './components/Cadastro'
+import Listagem from './components/Listagem'
 
 export default {
   name: 'App',
   components: {
-    Cadastro,
+    Listagem,
     CriarTarefa
   }
 }
