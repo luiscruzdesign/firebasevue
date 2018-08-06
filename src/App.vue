@@ -1,27 +1,34 @@
 <template>
   <div id="app">
-    <HelloWorld/>
+    <h1>ICE Score</h1>
+    <Cadastro/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld'
+import Cadastro from './components/Cadastro'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    Cadastro
   }
 }
 </script>
 
-<style>
+<style scoped>
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+}
+h1 {
+  margin: 0;
+  background: #0b6ebd;
+  color: #ffffff;
+  padding: 20px 0;
+  margin-bottom: 20px;
 }
 </style>
