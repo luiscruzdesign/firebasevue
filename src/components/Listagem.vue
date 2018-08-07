@@ -9,6 +9,7 @@
         <span>Impact ({{itemName.impact}}) Conficence ({{itemName.confidence}}) Ease ({{itemName.ease }})</span>
       </div>
       <div>
+        <button class="btn btn-xs btn-primary" v-model="editForm[key]" @click="editItem(key)">Edit</button>
         <button class="btn btn-xs btn-primary" @click="deleteItem(key)">Delete</button>
       </div>
       <!--
@@ -61,13 +62,14 @@ export default {
     border-top: 1px solid #e4e4e4;
   }
   li div:nth-of-type(1) {
-    width: 50%;
-  }
-  li div:nth-of-type(2) {
     width: 30%;
   }
+  li div:nth-of-type(2) {
+    width: 50%;
+  }
   li div:nth-of-type(3) {
-    width: 50px;
+    width: 20%;
+    text-align: right;
   }
   p {
     margin: 10px 0 0 0;

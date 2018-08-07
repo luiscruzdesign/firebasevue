@@ -31,7 +31,8 @@ h1 {
   margin: 0;
   background: #0b6ebd;
   color: #ffffff;
-  padding: 20px 0;
+  padding: 20px;
   margin-bottom: 0;
+  text-align: left;
 }
 </style>
