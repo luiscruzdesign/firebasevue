@@ -3,7 +3,7 @@
     <ul>
       <li v-for="(itemName,key) in items" :key="key">
         <span>
-          <strong>{{itemName.name}}</strong>
+          <strong>{{itemName.name}} ({{itemName.total}})</strong>
           <p>{{itemName.description}}</p>
           Impact ({{itemName.impact}})
           Conficence ({{itemName.confidence}})
@@ -35,7 +35,7 @@ export default {
     }
   },
   created() {
-    firebase.database().ref('items').on('value', (snapshot)=> {
+    firebase.database().ref('items').orderByChild('total').on('value', (snapshot)=> {
       console.log(snapshot.val());
       this.items=snapshot.val();
     })
@@ -52,11 +52,12 @@ export default {
     text-align: left;
     list-style-type: none;
     padding: 10px 0 10px 20px;
+    border-bottom: 1px solid #e4e4e4;
   }
-  li:nth-of-type(odd) {
-    background: #f1f1f1;
+  li:first-of-type {
+    border-top: 1px solid #e4e4e4;
   }
-  li:nth-of-type(even) {
-    background: #e0e0e0;
+  li:last-of-type {
+    border-bottom: none;
   }
 </style>

@@ -42,12 +42,14 @@ export default {
   },
   methods: {
     addItem() {
+      var total = Number(this.impactRange) + Number(this.confidenceRange) + Number(this.easeRange)
       firebase.database().ref('items').push({
         name: this.item,
         description: this.itemDescription,
         impact: this.impactRange,
         confidence: this.confidenceRange,
-        ease: this.easeRange
+        ease: this.easeRange,
+        total: total
       })
       .then((data)=>{
         console.log(data)
