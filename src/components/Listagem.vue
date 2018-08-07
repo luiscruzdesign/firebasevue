@@ -1,23 +1,23 @@
 <template>
-  <div>
-    <ul>
-      <li v-for="(itemName,key) in items" :key="key">
-        <span>
-          <strong>{{itemName.name}} ({{itemName.total}})</strong>
-          <p>{{itemName.description}}</p>
-          Impact ({{itemName.impact}})
-          Conficence ({{itemName.confidence}})
-          Ease ({{itemName.ease }})
-        </span>
+  <ul>
+    <li v-for="(itemName,key) in items" :key="key">
+      <div>
+        <strong>{{itemName.name}} ({{itemName.total}})</strong>
+        <p v-if="itemName.description">{{itemName.description}}</p>
+      </div>
+      <div>
+        <span>Impact ({{itemName.impact}}) Conficence ({{itemName.confidence}}) Ease ({{itemName.ease }})</span>
+      </div>
+      <div>
         <button class="btn btn-xs btn-primary" @click="deleteItem(key)">Delete</button>
-        <!--
-        <button class="btn btn-xs btn-primary">Edit</button>
-        <button class="btn btn-xs btn-primary" @click="deleteItem(key)">Delete</button>
-        <input type="text" v-model="editForm[key]" class="form-control" @keyup.enter="editItem(key)">
-        -->
-      </li>
-    </ul>
-  </div>
+      </div>
+      <!--
+      <button class="btn btn-xs btn-primary">Edit</button>
+      <button class="btn btn-xs btn-primary" @click="deleteItem(key)">Delete</button>
+      <input type="text" v-model="editForm[key]" class="form-control" @keyup.enter="editItem(key)">
+      -->
+    </li>
+  </ul>
 </template>
 
 <script>
@@ -51,13 +51,25 @@ export default {
   li {
     text-align: left;
     list-style-type: none;
-    padding: 10px 0 10px 20px;
+    padding: 10px 20px;
     border-bottom: 1px solid #e4e4e4;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
   li:first-of-type {
     border-top: 1px solid #e4e4e4;
   }
-  li:last-of-type {
-    border-bottom: none;
+  li div:nth-of-type(1) {
+    width: 50%;
+  }
+  li div:nth-of-type(2) {
+    width: 30%;
+  }
+  li div:nth-of-type(3) {
+    width: 50px;
+  }
+  p {
+    margin: 10px 0 0 0;
   }
 </style>
