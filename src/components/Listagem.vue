@@ -30,39 +30,13 @@ export default {
     }
   },
   methods: {
-    addItem() {
-      firebase.database().ref('items').push({
-        name: this.item,
-        description: this.itemDescription,
-        impact: this.impactRange,
-        confidence: this.confidenceRange,
-        ease: this.easeRange
-      })
-      .then((data)=>{
-        console.log(data)
-        this.item = '',
-        this.itemDescription = '',
-        this.impactRange = 5,
-        this.confidenceRange = 5,
-        this.easeRange = 5,
-        inputImpact.value = 5,
-        inputConfidence.value = 5,
-        inputEase.value = 5
-      })
-      .catch((error)=>{console.log(error)});
-    },
-    editItem(key) {
-      firebase.database().ref('items/' + key).set({
-        name: this.editForm[key]
-      })
-    },
     deleteItem(key) {
       firebase.database().ref('items/' + key).remove();
     }
   },
   created() {
     firebase.database().ref('items').on('value', (snapshot)=> {
-      //console.log(snapshot.val());
+      console.log(snapshot.val());
       this.items=snapshot.val();
     })
   }

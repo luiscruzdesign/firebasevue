@@ -32,8 +32,8 @@ export default {
   name: 'CriarTarefa',
   data () {
     return {
-      item: null,
-      itemDescription: null,
+      item: '',
+      itemDescription: '',
       impactRange: 5,
       confidenceRange: 5,
       easeRange: 5,
@@ -51,14 +51,6 @@ export default {
       })
       .then((data)=>{
         console.log(data)
-        this.item = '',
-        this.itemDescription = '',
-        this.impactRange = 5,
-        this.confidenceRange = 5,
-        this.easeRange = 5,
-        inputImpact.value = 5,
-        inputConfidence.value = 5,
-        inputEase.value = 5
       })
       .catch((error)=>{console.log(error)});
     },
