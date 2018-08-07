@@ -32,6 +32,6 @@ h1 {
   background: #0b6ebd;
   color: #ffffff;
   padding: 20px 0;
-  margin-bottom: 20px;
+  margin-bottom: 0;
 }
 </style>
